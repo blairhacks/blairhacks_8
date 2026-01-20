@@ -223,9 +223,9 @@ export function AboutUs() {
 
               <p className="text-xl leading-relaxed text-gray-800">
                 Whether you&apos;re a complete beginner or an experienced
-                developer, BlairHacks is designed for students of all skill levels.
-                Our mentors and workshops will help you learn, grow, and build
-                something amazing.
+                developer, BlairHacks is designed for students of all skill
+                levels. Our mentors and workshops will help you learn, grow, and
+                build something amazing.
               </p>
 
               <div className="flex flex-col gap-4 sm:flex-row">

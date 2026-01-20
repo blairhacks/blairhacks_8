@@ -49,7 +49,8 @@ export default function Home() {
       {/* Footer - bottom left */}
       <div className="absolute bottom-2 left-2 z-10">
         <p className="text-xs text-gray-400">
-          designed by Shiven Khurana with <span className="text-red-400">❤️</span>
+          designed by Shiven Khurana with{" "}
+          <span className="text-red-400">❤️</span>
         </p>
       </div>
     </div>

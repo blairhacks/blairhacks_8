@@ -130,8 +130,8 @@ export function Register() {
                 </span>
               </h3>
               <p className="text-xl leading-relaxed text-gray-800">
-                We&apos;re still finalizing the details for BlairHacks 2026. Full
-                registration will open around
+                We&apos;re still finalizing the details for BlairHacks 2026.
+                Full registration will open around
                 <span className="font-semibold text-red-600">
                   {" "}
                   Date TBD

@@ -55,8 +55,8 @@ export function Donate() {
             Donate
           </h2>
           <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-800">
-            Support the next generation of innovators and help make BlairHacks 2026
-            an unforgettable experience
+            Support the next generation of innovators and help make BlairHacks
+            2026 an unforgettable experience
           </p>
         </motion.div>
 

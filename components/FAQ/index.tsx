@@ -88,8 +88,8 @@ export function FAQ() {
             Got Questions?
           </h2>
           <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-800">
-            Everything you need to know about BlairHacks 2026. Can&apos;t find what
-            you&apos;re looking for? Contact us directly!
+            Everything you need to know about BlairHacks 2026. Can&apos;t find
+            what you&apos;re looking for? Contact us directly!
           </p>
         </motion.div>
 

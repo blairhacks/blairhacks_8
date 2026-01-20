@@ -146,9 +146,9 @@ export function Sponsors() {
                 </h3>
                 <p className="mb-6 text-xl leading-relaxed text-gray-800">
                   Your sponsorship directly supports venue costs, prizes, food,
-                  and resources that make BlairHacks possible. Help us provide 100+
-                  students with an incredible learning experience and the tools
-                  they need to build the future.
+                  and resources that make BlairHacks possible. Help us provide
+                  100+ students with an incredible learning experience and the
+                  tools they need to build the future.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
                   <div className="inline-flex items-center gap-2 rounded-full bg-red-500/20 px-3 py-1 text-sm text-red-600">
