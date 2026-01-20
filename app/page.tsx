@@ -1,3 +1,6 @@
+"use client";
+
+import { useMemo } from "react";
 import { AboutUs } from "@/components/AboutUs";
 import { Donate } from "@/components/Donate";
 import { FAQ } from "@/components/FAQ";
@@ -7,6 +10,15 @@ import { Register } from "@/components/Register";
 import { Sponsors } from "@/components/Sponsors";
 
 export default function Home() {
+  const particles = useMemo(() => {
+    return [...Array(20)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 3}s`,
+      animationDuration: `${2 + Math.random() * 3}s`,
+    }));
+  }, []);
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-pink-50 via-pink-100 to-pink-50">
       {/* Animated background elements */}
@@ -32,16 +44,11 @@ export default function Home() {
 
       {/* Floating particles */}
       <div className="pointer-events-none absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((style, i) => (
           <div
             key={i}
             className="absolute h-1 w-1 animate-pulse rounded-full bg-red-500/30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-            }}
+            style={style}
           />
         ))}
       </div>
