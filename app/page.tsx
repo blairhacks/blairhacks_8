@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+
 import { AboutUs } from "@/components/AboutUs";
 import { Donate } from "@/components/Donate";
 import { FAQ } from "@/components/FAQ";
@@ -10,14 +11,113 @@ import { Register } from "@/components/Register";
 import { Sponsors } from "@/components/Sponsors";
 
 export default function Home() {
-  const particles = useMemo(() => {
-    return [...Array(20)].map(() => ({
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      animationDelay: `${Math.random() * 3}s`,
-      animationDuration: `${2 + Math.random() * 3}s`,
-    }));
-  }, []);
+  const particles = [
+    { left: "10%", top: "20%", animationDelay: "0s", animationDuration: "3s" },
+    { left: "85%", top: "15%", animationDelay: "1s", animationDuration: "4s" },
+    {
+      left: "45%",
+      top: "80%",
+      animationDelay: "0.5s",
+      animationDuration: "3.5s",
+    },
+    { left: "25%", top: "60%", animationDelay: "2s", animationDuration: "5s" },
+    {
+      left: "70%",
+      top: "40%",
+      animationDelay: "1.5s",
+      animationDuration: "4.2s",
+    },
+    {
+      left: "5%",
+      top: "90%",
+      animationDelay: "0.2s",
+      animationDuration: "3.8s",
+    },
+    {
+      left: "95%",
+      top: "50%",
+      animationDelay: "1.2s",
+      animationDuration: "4.5s",
+    },
+    {
+      left: "40%",
+      top: "10%",
+      animationDelay: "0.8s",
+      animationDuration: "3.2s",
+    },
+    {
+      left: "60%",
+      top: "75%",
+      animationDelay: "1.8s",
+      animationDuration: "4.8s",
+    },
+    {
+      left: "30%",
+      top: "35%",
+      animationDelay: "0.4s",
+      animationDuration: "3.6s",
+    },
+    {
+      left: "80%",
+      top: "70%",
+      animationDelay: "1.1s",
+      animationDuration: "4.1s",
+    },
+    {
+      left: "15%",
+      top: "45%",
+      animationDelay: "1.6s",
+      animationDuration: "4.4s",
+    },
+    {
+      left: "50%",
+      top: "55%",
+      animationDelay: "0.3s",
+      animationDuration: "3.9s",
+    },
+    {
+      left: "35%",
+      top: "95%",
+      animationDelay: "1.4s",
+      animationDuration: "4.7s",
+    },
+    {
+      left: "65%",
+      top: "25%",
+      animationDelay: "0.9s",
+      animationDuration: "3.3s",
+    },
+    {
+      left: "20%",
+      top: "15%",
+      animationDelay: "1.3s",
+      animationDuration: "4.6s",
+    },
+    {
+      left: "75%",
+      top: "85%",
+      animationDelay: "0.6s",
+      animationDuration: "3.4s",
+    },
+    {
+      left: "55%",
+      top: "30%",
+      animationDelay: "1.7s",
+      animationDuration: "4.3s",
+    },
+    {
+      left: "90%",
+      top: "65%",
+      animationDelay: "0.1s",
+      animationDuration: "3.7s",
+    },
+    {
+      left: "12%",
+      top: "75%",
+      animationDelay: "1.9s",
+      animationDuration: "4.9s",
+    },
+  ];
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-pink-50 via-pink-100 to-pink-50">
