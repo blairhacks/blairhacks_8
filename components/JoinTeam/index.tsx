@@ -99,7 +99,7 @@ export function JoinTeam() {
 
           <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-800">
             We&apos;re looking for passionate high school students to help us
-            expand our impact and reach more students in the DC metro area. Join
+            expand our impact and reach more students in the DMV. Join
             us in building something amazing!
           </p>
         </motion.div>
@@ -215,16 +215,14 @@ export function JoinTeam() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className={`relative grid items-center gap-12 lg:grid-cols-2 ${
-                    index % 2 === 0 ? "lg:text-left" : "lg:text-right"
-                  }`}
+                  className={`relative grid items-center gap-12 lg:grid-cols-2 ${index % 2 === 0 ? "lg:text-left" : "lg:text-right"
+                    }`}
                 >
                   <div className="absolute top-8 left-1/2 h-6 w-6 -translate-x-1/2 rounded-full border-4 border-white bg-gradient-to-br from-red-500 to-pink-600 shadow-lg" />
 
                   <div
-                    className={`space-y-6 ${
-                      index % 2 === 0 ? "lg:pr-12" : "lg:order-2 lg:pl-12"
-                    }`}
+                    className={`space-y-6 ${index % 2 === 0 ? "lg:pr-12" : "lg:order-2 lg:pl-12"
+                      }`}
                   >
                     <div className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-gradient-to-r from-red-500/20 to-pink-500/20 px-4 py-2 text-sm text-red-700 backdrop-blur-sm">
                       <role.icon size={16} />
@@ -241,16 +239,14 @@ export function JoinTeam() {
                         Responsibilities:
                       </h5>
                       <ul
-                        className={`space-y-2 ${
-                          index % 2 === 0 ? "text-left" : "text-right"
-                        }`}
+                        className={`space-y-2 ${index % 2 === 0 ? "text-left" : "text-right"
+                          }`}
                       >
                         {role.responsibilities.map((responsibility, idx) => (
                           <li
                             key={idx}
-                            className={`flex items-start gap-3 text-gray-600 ${
-                              index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                            }`}
+                            className={`flex items-start gap-3 text-gray-600 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                              }`}
                           >
                             <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-r from-red-500 to-pink-500" />
                             <span>{responsibility}</span>
@@ -261,9 +257,8 @@ export function JoinTeam() {
                   </div>
 
                   <div
-                    className={`relative ${
-                      index % 2 === 0 ? "lg:order-2" : "lg:order-1"
-                    }`}
+                    className={`relative ${index % 2 === 0 ? "lg:order-2" : "lg:order-1"
+                      }`}
                   >
                     <div className="relative h-80 w-full overflow-hidden rounded-3xl">
                       <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-pink-500/10" />

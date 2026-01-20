@@ -20,7 +20,7 @@ export function FAQ() {
     {
       question: "What is BlairHacks?",
       answer:
-        "BlairHacks is a high school hackathon in the DC metro area, bringing together 100+ students for a weekend of innovation, collaboration, and building amazing projects. It's designed for students of all skill levels to learn, create, and connect.",
+        "BlairHacks is a high school hackathon in the DMV, bringing together 100+ students for a weekend of innovation, collaboration, and building amazing projects. It's designed for students of all skill levels to learn, create, and connect.",
     },
     {
       question: "Who can participate?",
@@ -35,7 +35,7 @@ export function FAQ() {
     {
       question: "What should I bring?",
       answer:
-        "Bring your laptop, charger, and enthusiasm! We'll provide food, drinks, and all the hardware and software resources you need. You can also bring any specific tools or equipment you'd like to use for your project.",
+        "Bring your laptop, charger, and enthusiasm! We'll provide food, drinks, and all the software resources you need. You can also bring any specific tools or equipment you'd like to use for your project.",
     },
     {
       question: "Do I need to know how to code?",

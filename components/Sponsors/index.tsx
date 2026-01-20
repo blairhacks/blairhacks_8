@@ -21,7 +21,7 @@ export function Sponsors() {
   const sponsorshipBenefits = [
     {
       title: "Reach 100+ Students",
-      description: "Connect with talented high schoolers in the DC area",
+      description: "Connect with talented high schoolers in the DMV",
     },
     {
       title: "Support Innovation",
@@ -62,7 +62,7 @@ export function Sponsors() {
               </h2>
               <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-800 lg:mx-0">
                 Help us make BlairHacks 2026 an unforgettable experience for
-                students in the DC metro area
+                students in the DMV
               </p>
             </div>
 

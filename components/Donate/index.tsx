@@ -118,7 +118,7 @@ export function Donate() {
                   Make a Direct Impact
                 </h3>
                 <p className="mb-6 text-xl leading-relaxed text-gray-800">
-                  Your donation directly supports students in the DC metro area,
+                  Your donation directly supports students in the DMV,
                   providing them with opportunities to build innovative
                   projects, learn new skills, and connect with peers who share
                   their passion for technology.
@@ -270,7 +270,7 @@ export function Donate() {
               </h3>
               <p className="mb-8 text-xl leading-relaxed text-gray-800">
                 Every contribution, no matter the size, helps us provide an
-                incredible experience for students in the DC metro area. Your
+                incredible experience for students in the DMV. Your
                 support makes innovation possible!
               </p>
               <Button

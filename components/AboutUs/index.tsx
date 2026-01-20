@@ -92,7 +92,7 @@ export function AboutUs() {
               BlairHacks
             </a>
             , we&apos;re bringing innovation, collaboration, and cutting-edge
-            technology to the DC metro area.
+            technology to the DMV.
           </p>
         </motion.div>
 
@@ -139,7 +139,7 @@ export function AboutUs() {
                 </span>
               </h3>
               <p className="text-xl leading-relaxed text-gray-800">
-                From workshops and mentorship to hardware and software
+                From workshops and mentorship to software
                 resources, we provide the tools and support you need to bring
                 your ideas to life.
               </p>
