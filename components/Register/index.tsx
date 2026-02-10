@@ -19,44 +19,21 @@ export function Register() {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
-  const benefits = [
-    {
-      title: "Early Access",
-      description: "Be first to know when registration opens",
-      color: "from-red-500 to-pink-500",
-    },
-    {
-      title: "Exclusive Updates",
-      description: "Get insider information and special announcements",
-      color: "from-red-500 to-pink-500",
-    },
-    {
-      title: "Community Access",
-      description: "Join our Discord and connect with other participants",
-      color: "from-red-500 to-pink-500",
-    },
-    {
-      title: "Priority Registration",
-      description: "Guaranteed spot when registration opens",
-      color: "from-red-500 to-pink-500",
-    },
-  ];
-
   const steps = [
     {
       number: "01",
-      title: "Join Waitlist",
-      description: "Sign up to be notified when registration opens",
+      title: "Register Now",
+      description: "Fill out the registration form to sign up",
     },
     {
       number: "02",
-      title: "Get Updates",
-      description: "Receive exclusive information and announcements",
+      title: "Join Discord",
+      description: "Connect with the community and organizers",
     },
     {
       number: "03",
-      title: "Register Early",
-      description: "Secure your spot when registration opens",
+      title: "Form a Team",
+      description: "Find teammates or prepare to go solo",
     },
     {
       number: "04",
@@ -100,12 +77,11 @@ export function Register() {
               Registration
             </span>{" "}
             <br />
-            <span className="text-gray-800">Coming Soon!</span>
+            <span className="text-gray-800">Is Open!</span>
           </h2>
 
           <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-800">
-            Registration isn&apos;t open yet, but you can join our interest list
-            to stay updated!
+            Registration is now open! Secure your spot for BlairHacks 8.
           </p>
         </motion.div>
 
@@ -121,26 +97,23 @@ export function Register() {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-gradient-to-r from-red-500/20 to-pink-500/20 px-4 py-2 text-sm text-red-700 backdrop-blur-sm">
                 <HiOutlineClock size={16} />
-                <span>Coming Soon</span>
+                <span>Registration Open</span>
               </div>
               <h3 className="text-3xl font-bold text-gray-800">
                 Registration{" "}
                 <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
-                  Coming Soon!
+                  Is Open!
                 </span>
               </h3>
               <p className="text-xl leading-relaxed text-gray-800">
-                We&apos;re still finalizing the details for BlairHacks 2026.
-                Full registration will open around
-                <span className="font-semibold text-red-600">
-                  {" "}
-                  Date TBD
-                </span>{" "}
-                when we have all the details finalized.
+                BlairHacks 8 registration is now live! Sign up now to secure your spot.
+              </p>
+              <p className="text-base text-gray-600">
+                Want the schedule, tracks, prizes, and rules? Head to the Competition page.
               </p>
               <div className="inline-flex items-center gap-2 rounded-full bg-red-500/20 px-4 py-2 text-sm font-medium text-red-600">
                 <HiOutlineCalendar size={16} />
-                <span>Expected: Date TBD</span>
+                <span>Deadline: [Date TBD]</span>
               </div>
             </div>
 
@@ -187,11 +160,11 @@ export function Register() {
                     </div>
                     <div>
                       <h4 className="text-xl font-bold text-gray-800">
-                        Stay in the Loop
+                        Don&apos;t Miss Out
                       </h4>
                       <p className="text-gray-600">
-                        Join our waitlist to get notified as soon as
-                        registration opens!
+                        Registration is open for a limited time.<br />
+                        Secure your spot today!
                       </p>
                     </div>
                   </div>
@@ -201,59 +174,6 @@ export function Register() {
                 <div className="absolute top-1/2 left-4 h-12 w-0.5 -translate-y-1/2 bg-gradient-to-b from-transparent via-red-400/20 to-transparent" />
                 <div className="absolute top-1/2 right-4 h-12 w-0.5 -translate-y-1/2 bg-gradient-to-b from-transparent via-pink-400/20 to-transparent" />
               </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Benefits Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-24"
-        >
-          <div className="mb-16 text-center">
-            <h3 className="mb-4 text-4xl font-bold text-gray-800">
-              Why Join the{" "}
-              <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
-                Waitlist?
-              </span>
-            </h3>
-            <p className="text-xl text-gray-600">
-              Get exclusive benefits and early access to BlairHacks 2026
-            </p>
-          </div>
-
-          {/* Creative Benefits Layout */}
-          <div className="relative">
-            {/* Central Connection Pattern */}
-            <div className="absolute top-0 left-1/2 h-full w-1 -translate-x-1/2 bg-gradient-to-b from-red-500/20 to-pink-500/20" />
-
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative"
-                >
-                  {/* Connection Dot */}
-                  <div className="absolute top-0 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-gradient-to-br from-red-500 to-pink-600" />
-
-                  {/* Content */}
-                  <div className="mt-6 text-center">
-                    <h4 className="mb-2 text-lg font-semibold text-gray-800">
-                      {benefit.title}
-                    </h4>
-                    <p className="text-sm text-gray-600">
-                      {benefit.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </div>
         </motion.div>
@@ -274,7 +194,7 @@ export function Register() {
               </span>
             </h3>
             <p className="text-xl text-gray-600">
-              Simple steps to get started with BlairHacks 2026
+              Simple steps to get started with BlairHacks 8
             </p>
           </div>
 
@@ -324,21 +244,32 @@ export function Register() {
         >
           <div className="mx-auto max-w-2xl text-center">
             <h3 className="mb-4 text-3xl font-bold text-gray-800">
-              Ready to Join the{" "}
+              Ready to{" "}
               <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
-                Mailing List?
+                Innovate?
               </span>
             </h3>
             <p className="mb-8 text-xl leading-relaxed text-gray-800">
-              Don&apos;t miss out! Join our mailing list now and get early
-              access to all the latest updates about BlairHacks 2026.
+              Join us for an unforgettable weekend of coding, learning, and fun.
+              Register now for BlairHacks 8!
             </p>
-            <Button className="group bg-gradient-to-r from-red-500 to-pink-600 px-8 py-4 text-lg text-white transition-all duration-200 hover:scale-105 hover:from-red-600 hover:to-pink-700">
-              <a href="https://link.blairhacks.org/interest" target="_blank">
-                Join Mailing List
-              </a>
-              <HiOutlineArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button asChild className="group bg-gradient-to-r from-red-500 to-pink-600 px-8 py-4 text-lg text-white transition-all duration-200 hover:scale-105 hover:from-red-600 hover:to-pink-700">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeawmqojf8LebsyY98MHMk8j_weRtoXcah05B3_1C0Dlaf8SQ/viewform?usp=dialog"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Register Now
+                  <HiOutlineArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-red-300 bg-white/80 px-8 py-4 text-lg text-red-600 transition-all duration-200 hover:border-red-400 hover:bg-red-50">
+                <a href="/competition">
+                  View Competition Details
+                </a>
+              </Button>
+            </div>
           </div>
         </motion.div>
       </div>

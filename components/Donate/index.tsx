@@ -50,13 +50,15 @@ export function Donate() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2
-            className={`${anta.className} mb-6 bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-5xl font-bold text-transparent sm:text-6xl`}
+            className={`${anta.className} mb-6 text-5xl font-bold sm:text-6xl`}
           >
-            Donate
+            <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
+              Donate
+            </span>
           </h2>
           <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-800">
             Support the next generation of innovators and help make BlairHacks
-            2026 an unforgettable experience
+            8 an unforgettable experience
           </p>
         </motion.div>
 

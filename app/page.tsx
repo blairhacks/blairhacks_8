@@ -1,12 +1,12 @@
 "use client";
 
 import { useMemo } from "react";
+import { FaInstagram } from "react-icons/fa";
 
 import { AboutUs } from "@/components/AboutUs";
 import { Donate } from "@/components/Donate";
 import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
-import { JoinTeam } from "@/components/JoinTeam";
 import { Register } from "@/components/Register";
 import { Sponsors } from "@/components/Sponsors";
 
@@ -135,7 +135,6 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <AboutUs />
-        <JoinTeam />
         <Register />
         <Sponsors />
         <Donate />
@@ -159,6 +158,18 @@ export default function Home() {
           designed by Shiven Khurana with{" "}
           <span className="text-red-400">❤️</span>
         </p>
+      </div>
+
+      <div className="absolute bottom-2 right-2 z-10">
+        <a
+          href="https://www.instagram.com/blairhacks/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="BlairHacks Instagram"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/70 text-gray-700 shadow-sm backdrop-blur transition-colors hover:bg-white hover:text-pink-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-2 focus-visible:ring-offset-pink-50"
+        >
+          <FaInstagram className="h-5 w-5" />
+        </a>
       </div>
     </div>
   );

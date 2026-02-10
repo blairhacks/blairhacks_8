@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Anta } from "next/font/google";
+import Image from "next/image";
 import {
   HiOutlineCurrencyDollar,
   HiOutlineDocumentText,
@@ -11,6 +12,9 @@ import {
 } from "react-icons/hi2";
 
 import { Button } from "@/components/ui/button";
+
+import wolframLogo from "@/components/sponsor logos/wolfram-logo.png";
+import xyzLogo from "@/components/sponsor logos/xyz-logo-color.png";
 
 const anta = Anta({
   subsets: ["latin"],
@@ -39,6 +43,11 @@ export function Sponsors() {
     },
   ];
 
+  const sponsors = [
+    { name: "Wolfram", logo: wolframLogo },
+    { name: "XYZ", logo: xyzLogo },
+  ];
+
   return (
     <section
       id="sponsors"
@@ -56,34 +65,48 @@ export function Sponsors() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="text-center lg:text-left">
               <h2
-                className={`${anta.className} mb-6 bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-5xl font-bold text-transparent sm:text-6xl`}
+                className={`${anta.className} mb-6 text-5xl font-bold sm:text-6xl`}
               >
-                Sponsors
+                <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
+                  Sponsors
+                </span>
               </h2>
               <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-800 lg:mx-0">
-                Help us make BlairHacks 2026 an unforgettable experience for
+                Help us make BlairHacks 8 an unforgettable experience for
                 students in the DMV
               </p>
             </div>
 
             {/* Image placeholder */}
-            {/* <div className="flex justify-center">
-              <div className="h-64 w-80 rounded-2xl border-2 border-dashed border-red-300 bg-gradient-to-br from-red-50/50 to-pink-50/50 shadow-lg">
-                <div className="flex h-full w-full items-center justify-center">
-                  <div className="text-center">
-                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-red-500/20 to-pink-500/20">
-                      <span className="text-2xl">🏢</span>
+            {/* Current Sponsors Grid */}
+            <div className="w-full">
+              <div className="grid grid-cols-2 items-center gap-x-10 gap-y-8 md:grid-cols-3 lg:grid-cols-4">
+                {sponsors.map((sponsor, i) => (
+                  <motion.div
+                    key={sponsor.name}
+                    className="group relative flex items-center justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <div className="relative h-14 w-full opacity-90 transition-opacity group-hover:opacity-100 sm:h-16">
+                      <Image
+                        src={sponsor.logo}
+                        alt={`${sponsor.name} logo`}
+                        fill
+                        className="object-contain"
+                        sizes="(min-width: 1024px) 10rem, (min-width: 768px) 8rem, 8rem"
+                        priority={i < 2}
+                      />
                     </div>
-                    <p className="text-sm font-medium text-gray-600">
-                      Sponsor Logos
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      600x400px recommended
-                    </p>
-                  </div>
-                </div>
+                  </motion.div>
+                ))}
               </div>
-            </div> */}
+              <p className="mt-8 text-center text-sm text-gray-500">
+                * Current BlairHacks 8 Sponsors. <a href="mailto:blairhacks@gmail.com" className="text-red-500 hover:underline">Become a sponsor</a> to join us!
+              </p>
+            </div>
           </div>
         </motion.div>
 

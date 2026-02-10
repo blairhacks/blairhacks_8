@@ -20,6 +20,16 @@ export function AboutUs() {
   const { scrollYProgress } = useScroll();
   const y1 = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
 
+  const themeStars = [
+    { left: "12%", top: "22%", size: "2px", delay: "0s", duration: "3.2s" },
+    { left: "22%", top: "68%", size: "1px", delay: "0.4s", duration: "2.8s" },
+    { left: "34%", top: "36%", size: "1px", delay: "0.7s", duration: "3.6s" },
+    { left: "48%", top: "58%", size: "2px", delay: "0.2s", duration: "4.2s" },
+    { left: "63%", top: "30%", size: "1px", delay: "0.9s", duration: "3.4s" },
+    { left: "74%", top: "64%", size: "2px", delay: "0.1s", duration: "4.0s" },
+    { left: "86%", top: "40%", size: "1px", delay: "0.6s", duration: "3.0s" },
+  ];
+
   const eventDetails = [
     {
       label: "Date",
@@ -161,7 +171,7 @@ export function AboutUs() {
               <h3 className="mt-4 text-4xl font-bold text-gray-800">
                 Everything you need to know about{" "}
                 <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
-                  BlairHacks 2026
+                  BlairHacks 8
                 </span>
               </h3>
             </div>
@@ -231,12 +241,7 @@ export function AboutUs() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <ScrollTo id="register">
                   <Button className="bg-gradient-to-r from-red-500 to-pink-600 text-white hover:from-red-600 hover:to-pink-700">
-                    Join Interest List
-                  </Button>
-                </ScrollTo>
-                <ScrollTo id="join">
-                  <Button className="bg-gradient-to-r from-red-500 to-pink-600 text-white hover:from-red-600 hover:to-pink-700">
-                    Join Our Team
+                    Register
                   </Button>
                 </ScrollTo>
               </div>
@@ -244,7 +249,33 @@ export function AboutUs() {
 
             <div className="relative">
               <div className="relative h-80 w-full overflow-hidden rounded-3xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-pink-500/5" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0f0b1f] via-[#090510] to-[#05030a]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(168,85,247,0.18),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(59,130,246,0.12),transparent_55%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]" />
+
+                <div className="pointer-events-none absolute inset-0">
+                  <svg className="absolute inset-0 h-full w-full opacity-35">
+                    <defs>
+                      <linearGradient id="homeThemeLine" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor="#ffffff" stopOpacity="0.65" />
+                        <stop offset="60%" stopColor="#c4b5fd" stopOpacity="0.55" />
+                        <stop offset="100%" stopColor="#93c5fd" stopOpacity="0.45" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M 18% 26% L 34% 38% L 50% 60%" stroke="url(#homeThemeLine)" strokeWidth="0.7" fill="none" strokeLinecap="round" />
+                    <path d="M 50% 60% L 74% 66% L 86% 42%" stroke="url(#homeThemeLine)" strokeWidth="0.7" fill="none" strokeLinecap="round" />
+                  </svg>
+
+                  {themeStars.map((s, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.35)]"
+                      style={{ left: s.left, top: s.top, width: s.size, height: s.size }}
+                      animate={{ opacity: [0.25, 1, 0.25], scale: [1, 1.6, 1] }}
+                      transition={{ duration: parseFloat(s.duration), delay: parseFloat(s.delay), repeat: Infinity, ease: "easeInOut" }}
+                    />
+                  ))}
+                </div>
 
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -276,24 +307,23 @@ export function AboutUs() {
 
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="space-y-4 text-center">
-                    <h4 className="text-2xl font-bold text-gray-800">
-                      Theme Coming Soon!
+                    <h4 className="text-2xl font-bold text-white">
+                      Theme: Constellations
                     </h4>
-                    <p className="text-gray-600">
-                      We&apos;re finalizing the hackathon theme. Have ideas?
-                      We&apos;d love to hear them!
+                    <p className="text-white/75">
+                      Connect the dots — build something that shines. Bring your ideas to life under the night sky.
                     </p>
                     <Button
                       variant="outline"
-                      className="border-red-400/50 text-red-600 hover:border-red-500 hover:bg-red-500/10"
+                      className="border-white/20 bg-white/5 text-white/85 hover:border-white/30 hover:bg-white/10"
                     >
-                      Theme Submission not out yet!
+                      Theme prompts coming soon
                     </Button>
                   </div>
                 </div>
 
-                <div className="absolute top-1/2 left-6 h-16 w-0.5 -translate-y-1/2 bg-gradient-to-b from-transparent via-red-400/20 to-transparent" />
-                <div className="absolute top-1/2 right-6 h-16 w-0.5 -translate-y-1/2 bg-gradient-to-b from-transparent via-pink-400/20 to-transparent" />
+                <div className="absolute top-1/2 left-6 h-16 w-0.5 -translate-y-1/2 bg-gradient-to-b from-transparent via-purple-300/20 to-transparent" />
+                <div className="absolute top-1/2 right-6 h-16 w-0.5 -translate-y-1/2 bg-gradient-to-b from-transparent via-blue-300/20 to-transparent" />
               </div>
             </div>
           </motion.div>

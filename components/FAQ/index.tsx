@@ -23,19 +23,19 @@ export function FAQ() {
         "BlairHacks is a high school hackathon in the DMV, bringing together 100+ students for a weekend of innovation, collaboration, and building amazing projects. It's designed for students of all skill levels to learn, create, and connect.",
     },
     {
-      question: "Who can participate?",
+      question: "Who can attend?",
       answer:
         "BlairHacks is open to all secondary students who are 18 or younger. Whether you're a complete beginner or an experienced developer, everyone is welcome! We provide workshops, mentorship, and resources for all skill levels.",
     },
     {
-      question: "When and where is BlairHacks 2026?",
+      question: "When and where is BlairHacks 8?",
       answer:
-        "BlairHacks 2026's exact date and location are still yet to be determined. Stay tuned for more info!",
+        "BlairHacks 8's exact date and location are still yet to be determined. Stay tuned for more info!",
     },
     {
       question: "What should I bring?",
       answer:
-        "Bring your laptop, charger, and enthusiasm! We'll provide food, drinks, and all the software resources you need. You can also bring any specific tools or equipment you'd like to use for your project.",
+        "Bring your laptop, charger, and any personal items you need. We'll provide food, drinks, WiFi, and a great hacking environment!",
     },
     {
       question: "Do I need to know how to code?",
@@ -83,12 +83,16 @@ export function FAQ() {
           </div>
 
           <h2
-            className={`${anta.className} mb-6 bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-5xl font-bold text-transparent sm:text-6xl`}
+            className={`${anta.className} mb-6 text-5xl font-bold sm:text-6xl`}
           >
-            Got Questions?
+            <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
+              FAQ
+            </span>
+            <br />
+            <span className="text-gray-800">Got Questions?</span>
           </h2>
           <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-800">
-            Everything you need to know about BlairHacks 2026. Can&apos;t find
+            Everything you need to know about BlairHacks 8. Can&apos;t find
             what you&apos;re looking for? Contact us directly!
           </p>
         </motion.div>
@@ -190,17 +194,11 @@ export function FAQ() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
                 <a
-                  href="mailto:blairhacks@gmail.com"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-500 to-pink-600 px-8 py-4 text-lg font-medium text-white transition-all duration-200 hover:scale-105 hover:from-red-600 hover:to-pink-700"
+                  href="#contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-red-500 bg-gradient-to-r from-red-500 to-pink-600 px-8 py-4 text-lg font-medium text-white transition-all duration-200 hover:from-red-600 hover:to-pink-700"
                 >
                   <HiOutlineQuestionMarkCircle size={20} />
                   Contact Us
-                </a>
-                <a
-                  href="#join"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-red-300 bg-white/80 px-8 py-4 text-lg font-medium text-red-600 transition-all duration-200 hover:border-red-400 hover:bg-red-50"
-                >
-                  Join Our Team
                 </a>
               </div>
             </div>

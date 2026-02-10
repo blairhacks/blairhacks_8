@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Anta } from "next/font/google";
 import { HiArrowDown, HiCodeBracket } from "react-icons/hi2";
+import { FaDiscord } from "react-icons/fa";
 
 import { ScrollTo } from "@/components/ScrollTo";
 import { Button } from "@/components/ui/button";
@@ -73,17 +74,18 @@ export function Hero() {
             {/* Main heading with innovative typography */}
             <div className="space-y-4">
               <motion.h1
-                className={`${anta.className} text-5xl leading-tight font-bold sm:text-6xl lg:text-7xl`}
+                className={`${anta.className} whitespace-nowrap text-5xl font-bold leading-tight text-gray-800 sm:text-7xl lg:text-8xl`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <span className="bg-gradient-to-r from-red-600 via-red-500 to-pink-600 bg-clip-text text-transparent">
-                  BlairHacks
-                </span>
-                <br />
-                <span className="text-3xl text-red-700 sm:text-4xl lg:text-5xl">
-                  2026
+                <span className="inline-flex items-baseline gap-2">
+                  <span className="bg-gradient-to-r from-red-600 via-red-500 to-pink-600 bg-clip-text text-transparent">
+                    BlairHacks
+                  </span>
+                  <span className="bg-gradient-to-r from-red-600 via-red-500 to-pink-600 bg-clip-text text-transparent">
+                    8
+                  </span>
                 </span>
               </motion.h1>
 
@@ -167,14 +169,23 @@ export function Hero() {
                   Get Started
                 </Button>
               </ScrollTo>
-              <ScrollTo id="join">
-                <Button
-                  size="lg"
-                  className="transform bg-gradient-to-r from-red-500 to-pink-600 px-8 py-4 text-lg text-white shadow-lg shadow-red-500/25 transition-all duration-200 hover:scale-105 hover:from-red-600 hover:to-pink-700"
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-red-300 bg-white/80 px-8 py-4 text-lg text-red-600 transition-all duration-200 hover:scale-105 hover:border-red-400 hover:bg-red-50"
+              >
+                <a
+                  href="https://discord.gg/7KQtGmTJ"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Join BlairHacks Discord"
+                  className="inline-flex items-center gap-2"
                 >
-                  Join Team
-                </Button>
-              </ScrollTo>
+                  <FaDiscord className="h-5 w-5" />
+                  Join Discord
+                </a>
+              </Button>
             </motion.div>
           </motion.div>
 
