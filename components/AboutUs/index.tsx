@@ -308,10 +308,10 @@ export function AboutUs() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="space-y-4 text-center">
                     <h4 className="text-2xl font-bold text-white">
-                      Theme: Constellations
+                      Theme: ...
                     </h4>
                     <p className="text-white/75">
-                      Connect the dots — build something that shines. Bring your ideas to life under the night sky.
+                      ...
                     </p>
                     <Button
                       variant="outline"
