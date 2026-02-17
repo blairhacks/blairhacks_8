@@ -106,14 +106,14 @@ export function Register() {
                 </span>
               </h3>
               <p className="text-xl leading-relaxed text-gray-800">
-                BlairHacks 8 registration is now live! Sign up now to secure your spot.
+                BlairHacks 8 will be held from May 23rd to 25th at Montgomery Blair High School. Stay tuned for more specific schedule details! Secure your spot.
               </p>
               <p className="text-base text-gray-600">
                 Want the schedule, tracks, prizes, and rules? Head to the Competition page.
               </p>
               <div className="inline-flex items-center gap-2 rounded-full bg-red-500/20 px-4 py-2 text-sm font-medium text-red-600">
                 <HiOutlineCalendar size={16} />
-                <span>Deadline: [Date TBD]</span>
+                <span>May 23rd to 25th</span>
               </div>
             </div>
 

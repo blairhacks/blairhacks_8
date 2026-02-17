@@ -7,6 +7,7 @@ import { FaDiscord } from "react-icons/fa";
 
 import { ScrollTo } from "@/components/ScrollTo";
 import { Button } from "@/components/ui/button";
+import { Countdown } from "@/components/Countdown";
 
 const anta = Anta({
   subsets: ["latin"],
@@ -116,6 +117,16 @@ export function Hero() {
               </span>
             </motion.p>
 
+            {/* Countdown Timer */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="py-2"
+            >
+              <Countdown targetDate="2026-05-23T09:30:00" theme="light" />
+            </motion.div>
+
             {/* Event details with modern cards */}
             <motion.div
               className="grid grid-cols-1 gap-4 sm:grid-cols-3"
@@ -125,7 +136,7 @@ export function Hero() {
             >
               {[
                 {
-                  label: "Date TBD",
+                  label: "May 23rd to 25th",
                   color: "from-red-500 to-pink-500",
                 },
                 {

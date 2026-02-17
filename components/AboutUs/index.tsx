@@ -33,7 +33,7 @@ export function AboutUs() {
   const eventDetails = [
     {
       label: "Date",
-      value: "Date TBD",
+      value: "May 23rd to 25th",
       subtext: "Mark your calendars!",
     },
     {

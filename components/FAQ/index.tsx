@@ -30,7 +30,7 @@ export function FAQ() {
     {
       question: "When and where is BlairHacks 8?",
       answer:
-        "BlairHacks 8's exact date and location are still yet to be determined. Stay tuned for more info!",
+        "BlairHacks 8 will be held from May 23rd to 25th at Montgomery Blair High School. Stay tuned for more specific schedule details!",
     },
     {
       question: "What should I bring?",

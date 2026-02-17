@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Anta } from "next/font/google";
 import { useState, useEffect } from "react";
-import { HiOutlineCalendar, HiOutlineTrophy, HiOutlineUsers, HiOutlineSparkles } from "react-icons/hi2";
+import { HiOutlineCalendar, HiOutlineTrophy, HiOutlineUsers, HiOutlineSparkles, HiXMark } from "react-icons/hi2";
 import { FaDiscord, FaInstagram } from "react-icons/fa";
 import { Navbar } from "@/components/Navbar";
+import { Countdown } from "@/components/Countdown";
 
 const anta = Anta({
     subsets: ["latin"],
@@ -21,8 +22,94 @@ interface Star {
     delay: number;
 }
 
+interface Constellation {
+    id: number;
+    points: { x: number; y: number }[];
+    opacity: number;
+    duration: number;
+    delay: number;
+    rotate: number;
+    left: number;
+    top: number;
+    scale: number;
+    key: string; // Unique key to force re-render/reset animation
+}
+
+const constellationShapes = [
+    // Cassiopeia-ish (W shape)
+    [{ x: 0, y: 0 }, { x: 20, y: 30 }, { x: 40, y: 15 }, { x: 60, y: 35 }, { x: 80, y: 10 }],
+    // Big Dipper-ish
+    [{ x: 0, y: 0 }, { x: 20, y: 5 }, { x: 40, y: 10 }, { x: 50, y: 25 }, { x: 60, y: 40 }, { x: 80, y: 40 }, { x: 80, y: 20 }],
+    // Orion-ish (Bow/Hourglass)
+    [{ x: 20, y: 0 }, { x: 80, y: 0 }, { x: 50, y: 30 }, { x: 20, y: 60 }, { x: 80, y: 60 }, { x: 50, y: 30 }, { x: 65, y: 30 }, { x: 35, y: 30 }],
+    // Cygnus-ish (Cross)
+    [{ x: 50, y: 0 }, { x: 50, y: 80 }, { x: 20, y: 40 }, { x: 80, y: 40 }],
+    // Pegasus-ish (Square + legs)
+    [{ x: 20, y: 20 }, { x: 60, y: 20 }, { x: 60, y: 60 }, { x: 20, y: 60 }, { x: 20, y: 20 }, { x: 0, y: 0 }, { x: 60, y: 60 }, { x: 80, y: 80 }],
+    // Random ZigZag
+    [{ x: 0, y: 20 }, { x: 30, y: 0 }, { x: 50, y: 40 }, { x: 80, y: 10 }, { x: 100, y: 50 }]
+];
+
+interface Prize {
+    title: string;
+    description: string;
+    details?: string;
+    isSpecial?: boolean;
+}
+
+const prizes: Prize[] = [
+    {
+        title: "OVERALL",
+        description: "Top builds, best demo, and track winners.",
+        details: "The overall winners will be chosen based on the highest cumulative scores across all judging criteria: Impact, Creativity, Technical Complexity, and Presentation. Top 3 teams will receive major prizes!",
+        isSpecial: true
+    },
+    {
+        title: "Wolfram Award",
+        description: "For projects utilizing Wolfram Language.",
+        details: "The Wolfram Award is for all participants who utilize Wolfram Language as a significant component in their project. This prize contains a year of WolframOne, with a retail value of $1,660/year per user. In addition, any student who submits a project utilizing Wolfram Language is eligible for a $500 scholarship to one of our summer programs if they apply and are accepted."
+    },
+    {
+        title: "Best Beginner Hack",
+        description: "Best project by a team of first-time hackers.",
+        details: "Awarded to the team composed primarily of first-time hackers that demonstrates the most impressive learning curve and execution."
+    },
+    {
+        title: "Best Design",
+        description: "Most visually appealing and user-friendly project.",
+        details: "Given to the project with the most outstanding UI/UX design, considering aesthetics, usability, and accessibility."
+    },
+    {
+        title: "Best Use of AI",
+        description: "Most innovative integration of AI/ML.",
+        details: "Awarded to the project that best leverages Artificial Intelligence or Machine Learning technologies to solve a problem or enhance the user experience."
+    },
+    {
+        title: "People's Choice",
+        description: "Voted by fellow hackers.",
+        details: "The favorite project as voted on by all participants at the end of the hackathon."
+    }
+];
+
 export default function Competition() {
     const [stars, setStars] = useState<Star[]>([]);
+    const [constellations, setConstellations] = useState<Constellation[]>([]);
+    const [selectedPrize, setSelectedPrize] = useState<Prize | null>(null);
+
+    const generateRandomConstellation = (id: number): Constellation => {
+        return {
+            id,
+            points: constellationShapes[Math.floor(Math.random() * constellationShapes.length)],
+            opacity: Math.random() * 0.5 + 0.3, // Random max opacity
+            duration: Math.random() * 5 + 5, // Slower animation (5-10s)
+            delay: Math.random() * 2, // Short initial delay
+            rotate: Math.random() * 360,
+            left: Math.random() * 90,
+            top: Math.random() * 90,
+            scale: Math.random() * 0.6 + 0.4,
+            key: Math.random().toString(36).substring(7) // Random key to force re-render
+        };
+    };
 
     useEffect(() => {
         const newStars = Array.from({ length: 110 }).map((_, i) => ({
@@ -34,7 +121,16 @@ export default function Competition() {
             delay: Math.random() * 5,
         }));
         setStars(newStars);
+
+        const newConstellations = Array.from({ length: 5 }).map((_, i) => generateRandomConstellation(i));
+        setConstellations(newConstellations);
     }, []);
+
+    const refreshConstellation = (id: number) => {
+        setConstellations(prev => prev.map(c =>
+            c.id === id ? generateRandomConstellation(id) : c
+        ));
+    };
 
     return (
         <div className="min-h-screen bg-[#05030a] text-white overflow-hidden relative font-sans selection:bg-purple-500/30">
@@ -48,6 +144,49 @@ export default function Competition() {
 
             {/* Constellation Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {/* Randomly Generated Constellations */}
+                {constellations.map((constellation) => (
+                    <motion.div
+                        key={`${constellation.id}-${constellation.key}`}
+                        className="absolute"
+                        style={{
+                            left: `${constellation.left}%`,
+                            top: `${constellation.top}%`,
+                            width: "150px",
+                            height: "150px",
+                        }}
+                        initial={{
+                            rotate: constellation.rotate,
+                            scale: constellation.scale,
+                            opacity: 0,
+                        }}
+                        animate={{
+                            opacity: [0, constellation.opacity, 0], // Init -> Fade In -> Fade Out
+                        }}
+                        transition={{
+                            duration: constellation.duration,
+                            ease: "easeInOut",
+                            delay: constellation.delay,
+                            times: [0, 0.5, 1]
+                        }}
+                        onAnimationComplete={() => refreshConstellation(constellation.id)}
+                    >
+                        <svg width="100%" height="100%" viewBox="0 0 100 100" className="overflow-visible">
+                            {/* Connection Lines */}
+                            <motion.path
+                                d={`M ${constellation.points.map((p) => `${p.x} ${p.y}`).join(' L ')}`}
+                                stroke="rgba(255,255,255,0.4)"
+                                strokeWidth="1"
+                                fill="none"
+                            />
+                            {/* Stars at vertices */}
+                            {constellation.points.map((p, idx) => (
+                                <circle key={idx} cx={p.x} cy={p.y} r="2" fill="white" className="blur-[0.5px]" />
+                            ))}
+                        </svg>
+                    </motion.div>
+                ))}
+
                 {/* Stars */}
                 {stars.map((star) => (
                     <motion.div
@@ -145,6 +284,11 @@ export default function Competition() {
                     <h1 className={`${anta.className} text-6xl md:text-8xl font-bold bg-gradient-to-r from-purple-300 via-pink-300 to-red-300 bg-clip-text text-transparent mb-8 drop-shadow-[0_0_15px_rgba(236,72,153,0.3)]`}>
                         Competition
                     </h1>
+
+                    <div className="mb-10">
+                        <Countdown targetDate="2026-05-23T09:30:00" theme="dark" />
+                    </div>
+
                     <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
                         A 24-hour build sprint packed with workshops, mentors, demos, and prizes.
                     </p>
@@ -182,35 +326,15 @@ export default function Competition() {
                     >
                         <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl -mr-16 -mt-16 transition-all group-hover:bg-purple-500/20" />
 
-                        <div className="relative z-10">
+                        <div className="relative z-10 flex flex-col h-full">
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="p-3 rounded-2xl bg-purple-500/20 text-purple-300 ring-1 ring-purple-500/50">
                                     <HiOutlineCalendar className="text-3xl" />
                                 </div>
                                 <h2 className={`${anta.className} text-3xl font-bold text-white tracking-wide`}>Hackathon Schedule</h2>
                             </div>
-                            <div className="space-y-6">
-                                <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
-                                    <span className="text-purple-400 font-mono text-sm mt-1">Day 1</span>
-                                    <div>
-                                        <h3 className="font-semibold text-white">Opening + Team Formation</h3>
-                                        <p className="text-gray-400 text-sm mt-1">Check-in, kickoff, rules, and idea pitching to find teammates.</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
-                                    <span className="text-purple-400 font-mono text-sm mt-1">Day 1</span>
-                                    <div>
-                                        <h3 className="font-semibold text-white">Hacking + Workshops</h3>
-                                        <p className="text-gray-400 text-sm mt-1">Build all night with mini-events, workshops, and mentor office hours.</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
-                                    <span className="text-purple-400 font-mono text-sm mt-1">Day 2</span>
-                                    <div>
-                                        <h3 className="font-semibold text-white">Demos + Awards</h3>
-                                        <p className="text-gray-400 text-sm mt-1">Project expo, judging, closing ceremony, and winners announced.</p>
-                                    </div>
-                                </div>
+                            <div className="flex-grow flex items-center justify-center min-h-[120px]">
+                                <p className="text-2xl text-gray-400 font-light italic">Coming Soon...</p>
                             </div>
                         </div>
                     </motion.div>
@@ -265,14 +389,25 @@ export default function Competition() {
                                 <h2 className={`${anta.className} text-3xl font-bold text-white tracking-wide`}>Prizes</h2>
                             </div>
                             <div className="space-y-4">
-                                <div className="relative h-32 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 p-6 flex flex-col items-center justify-center text-center">
-                                    <span className="text-red-300 font-semibold tracking-wider mb-2">OVERALL</span>
-                                    <p className="text-gray-200">Top builds, best demo, and track winners.</p>
-                                </div>
+                                {prizes.filter(p => p.isSpecial).map((prize, idx) => (
+                                    <div
+                                        key={idx}
+                                        onClick={() => setSelectedPrize(prize)}
+                                        className="relative h-32 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-white/10 transition-colors"
+                                    >
+                                        <span className="text-red-300 font-semibold tracking-wider mb-2">{prize.title}</span>
+                                        <p className="text-gray-200">{prize.description}</p>
+                                    </div>
+                                ))}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    {["Best Beginner Hack", "Best Design", "Best Use of AI", "People's Choice"].map((p) => (
-                                        <div key={p} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-gray-300">
-                                            {p}
+                                    {prizes.filter(p => !p.isSpecial).map((prize, idx) => (
+                                        <div
+                                            key={idx}
+                                            onClick={() => setSelectedPrize(prize)}
+                                            className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-gray-300 cursor-pointer hover:bg-white/10 hover:border-red-500/30 transition-all"
+                                        >
+                                            <div className="font-semibold text-red-100 mb-1">{prize.title}</div>
+                                            <div className="text-xs text-gray-400 line-clamp-1">{prize.description}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -334,6 +469,50 @@ export default function Competition() {
                     <FaInstagram className="h-5 w-5" />
                 </a>
             </div>
+
+            {/* Prize Detail Modal */}
+            <AnimatePresence>
+                {selectedPrize && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedPrize(null)}
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-[#0f0b1f] border border-white/10 p-6 shadow-2xl shadow-purple-500/20"
+                        >
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none" />
+                            <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
+
+                            <div className="relative z-10">
+                                <div className="flex justify-between items-start mb-4">
+                                    <h3 className={`${anta.className} text-2xl font-bold text-white`}>{selectedPrize.title}</h3>
+                                    <button
+                                        onClick={() => setSelectedPrize(null)}
+                                        className="p-1 rounded-full bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                                    >
+                                        <HiXMark className="text-xl" />
+                                    </button>
+                                </div>
+
+                                <p className="text-lg text-purple-200 mb-4 font-medium">{selectedPrize.description}</p>
+
+                                {selectedPrize.details && (
+                                    <div className="text-gray-300 leading-relaxed text-sm bg-white/5 p-4 rounded-xl border border-white/5">
+                                        {selectedPrize.details}
+                                    </div>
+                                )}
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

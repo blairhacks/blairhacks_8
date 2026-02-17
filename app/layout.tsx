@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     "High School Hackathon in the DMV - Join 100+ students for innovation, collaboration, and building the future",
   keywords:
     "hackathon, high school, DMV, DC, Washington, coding, programming, technology",
+  icons: "/icon.jpg",
   openGraph: {
     title: "BlairHacks 8",
     description: "High School Hackathon in the DMV",
