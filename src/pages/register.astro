@@ -1,0 +1,15 @@
+---
+// Redirect to Google Forms registration
+const redirectUrl = 'https://forms.gle/VPV68n96noazzX4Y9';
+---
+
+<meta http-equiv="refresh" content={`0; url=${redirectUrl}`} />
+
+<script is:inline>
+  window.location.href = 'https://forms.gle/VPV68n96noazzX4Y9';
+</script>
+
+<p style="text-align: center; margin-top: 50px; font-family: system-ui;">
+  Redirecting to registration form...<br>
+  If you are not redirected, <a href="https://forms.gle/VPV68n96noazzX4Y9">click here</a>.
+</p>
