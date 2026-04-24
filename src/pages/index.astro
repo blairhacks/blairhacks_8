@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import AboutUs from '../components/AboutUs.astro';
+import FAQ from '../components/FAQ.astro';
+import Sponsors from '../components/Sponsors.astro';
+import Team from '../components/Team.astro';
+---
+
+<Layout>
+        <main>
+                <Hero />
+                <AboutUs />
+                <Team />
+                <Sponsors />
+                <FAQ />
+        </main>
+
+        <footer class="bg-[#0a0a0a] border-t border-white/10 py-12 relative z-10">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-slate-500 font-medium text-sm">
+                        <p>Designed by Shiven Khurana</p>
+                        <a href="https://www.instagram.com/blairhacks/" target="_blank" rel="noreferrer" class="mt-4 md:mt-0 hover:text-white transition-colors">
+                                Follow us on Instagram
+                        </a>
+                </div>
+        </footer>
+</Layout>

@@ -1,0 +1,349 @@
+---
+import Countdown from './Countdown.astro';
+---
+
+<section id="hero" class="relative flex min-h-[90vh] items-center justify-center pt-12 pb-12 overflow-hidden">
+  <div class="parallax-star parallax-star-1"></div>
+  <div class="parallax-star parallax-star-2"></div>
+  <div class="parallax-star parallax-star-3"></div>
+  <div class="parallax-star parallax-star-4"></div>
+  <div class="parallax-star parallax-star-5"></div>
+  <div class="parallax-star parallax-star-6"></div>
+  <div class="parallax-star parallax-star-7"></div>
+  <div class="parallax-star parallax-star-8"></div>
+  <div class="yellow-dot yellow-dot-1"></div>
+  <div class="yellow-dot yellow-dot-2"></div>
+  <div class="yellow-dot yellow-dot-3"></div>
+  <div class="yellow-dot yellow-dot-4"></div>
+  <div class="yellow-dot yellow-dot-5"></div>
+  <div class="parallax-circle parallax-circle-1"></div>
+  <div class="parallax-circle parallax-circle-2"></div>
+  <div class="parallax-circle parallax-circle-3"></div>
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-12">
+    <div class="space-y-8 animate-fade-in-up parallax-content">
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-medium text-white">
+        <span>High School Hackathon</span>
+      </div>
+
+      <div class="space-y-4">
+        <h1 class="text-6xl font-bold tracking-tight text-white sm:text-8xl" id="glitch-title">
+          BlairHacks 8
+        </h1>
+
+        <div class="h-1 w-24 bg-gradient-line"></div>
+      </div>
+
+      <p class="max-w-lg text-xl font-medium leading-relaxed text-slate-400">
+        Join <span class="text-white font-semibold">100+ students</span> for an unforgettable weekend of innovation, collaboration, and building the future.
+      </p>
+
+      <div class="pt-4 pb-2">
+        <Countdown targetDate="2026-05-23T09:30:00" />
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 mt-4">
+        <div class="flex min-h-[80px] items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:-translate-y-1">
+          <span class="text-center font-medium text-white">May 23-25</span>
+        </div>
+        <div class="flex min-h-[80px] items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:-translate-y-1">
+          <span class="text-center font-medium text-white">Blair HS</span>
+        </div>
+        <div class="flex min-h-[80px] items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:-translate-y-1">
+          <span class="text-center font-medium text-white">100+ Students</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4 pt-6 sm:flex-row">
+        <a href="#register" class="rounded-lg border border-white bg-white px-8 py-4 text-lg font-semibold text-black hover:bg-white/90 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 transition-all text-center">Get Started</a>
+        <a href="https://discord.gg/7KQtGmTJ" target="_blank" rel="noreferrer" class="rounded-lg border border-white/20 bg-white/5 px-8 py-4 text-lg font-semibold text-white hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:border-white/40 hover:scale-105 transition-all text-center">Join Discord</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+
+  .bg-gradient-line {
+    background: linear-gradient(90deg, #ffffff, #a0a0a0, #ffffff, #c0c0c0, #ffffff);
+    background-size: 200% 100%;
+    animation: gradient-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-pulse {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .parallax-star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  .parallax-star-1 {
+    width: 4px;
+    height: 4px;
+    top: 15%;
+    left: 8%;
+  }
+
+  .parallax-star-2 {
+    width: 3px;
+    height: 3px;
+    top: 55%;
+    left: 90%;
+  }
+
+  .parallax-star-3 {
+    width: 5px;
+    height: 5px;
+    top: 25%;
+    left: 80%;
+  }
+
+  .parallax-star-4 {
+    width: 2px;
+    height: 2px;
+    top: 75%;
+    left: 15%;
+  }
+
+  .parallax-star-5 {
+    width: 3px;
+    height: 3px;
+    top: 45%;
+    left: 45%;
+  }
+
+  .parallax-star-6 {
+    width: 4px;
+    height: 4px;
+    top: 85%;
+    left: 70%;
+  }
+
+  .parallax-star-7 {
+    width: 2px;
+    height: 2px;
+    top: 35%;
+    left: 25%;
+  }
+
+  .parallax-star-8 {
+    width: 3px;
+    height: 3px;
+    top: 65%;
+    left: 55%;
+  }
+
+  .parallax-circle {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .parallax-circle-1 {
+    width: 150px;
+    height: 150px;
+    top: 10%;
+    right: 10%;
+  }
+
+  .parallax-circle-2 {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    left: 5%;
+  }
+
+  .parallax-circle-3 {
+    width: 80px;
+    height: 80px;
+    top: 40%;
+    right: 30%;
+  }
+
+  .yellow-dot {
+    position: absolute;
+    background: #ffd700;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  .yellow-dot-1 {
+    width: 4px;
+    height: 4px;
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+  }
+
+  .yellow-dot-2 {
+    width: 3px;
+    height: 3px;
+    top: 40%;
+    right: 25%;
+    animation-delay: 0.5s;
+  }
+
+  .yellow-dot-3 {
+    width: 5px;
+    height: 5px;
+    top: 70%;
+    left: 60%;
+    animation-delay: 1s;
+  }
+
+  .yellow-dot-4 {
+    width: 3px;
+    height: 3px;
+    top: 30%;
+    right: 50%;
+    animation-delay: 1.5s;
+  }
+
+  .yellow-dot-5 {
+    width: 4px;
+    height: 4px;
+    bottom: 30%;
+    left: 40%;
+    animation-delay: 0.3s;
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .parallax-content {
+    transition: transform 0.1s ease-out;
+  }
+
+  #glitch-title {
+    position: relative;
+    display: inline-block;
+  }
+
+  #glitch-title.glitching {
+    text-shadow: 4px 0 #0ff, -4px 0 #f0f;
+    animation: text-shake 0.1s ease-in-out;
+  }
+
+  @keyframes text-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px) skew(-2deg); }
+    50% { transform: translateX(3px) skew(2deg); }
+    75% { transform: translateX(-1px) skew(-1deg); }
+  }
+</style>
+
+<script>
+  // @ts-ignore
+  const heroSection = document.getElementById('hero');
+  // @ts-ignore
+  const parallaxStars = document.querySelectorAll('.parallax-star');
+  // @ts-ignore
+  const parallaxCircles = document.querySelectorAll('.parallax-circle');
+  // @ts-ignore
+  const parallaxContent = document.querySelector('.parallax-content');
+
+  function handleParallax() {
+    if (!heroSection) return;
+
+    const scrollY = window.scrollY;
+    const heroRect = heroSection.getBoundingClientRect();
+    const heroTop = heroRect.top;
+    const heroBottom = heroRect.bottom;
+
+    if (heroTop < window.innerHeight && heroBottom > 0) {
+      // Move stars at different speeds
+      parallaxStars.forEach((star, index) => {
+        // @ts-ignore
+        const speed = 0.3 + (index * 0.15);
+        const yPos = scrollY * speed;
+        const xPos = scrollY * (index % 2 === 0 ? 0.1 : -0.1);
+        (star as HTMLElement).style.transform = `translate(${xPos}px, ${yPos}px)`;
+      });
+
+      // Move circles at different speeds
+      parallaxCircles.forEach((circle, index) => {
+        // @ts-ignore
+        const speed = 0.15 + (index * 0.1);
+        const yPos = scrollY * speed;
+        const xPos = scrollY * (index % 2 === 0 ? -0.05 : 0.05);
+        (circle as HTMLElement).style.transform = `translate(${xPos}px, ${yPos}px)`;
+      });
+
+      // Move content at slower speed
+      if (parallaxContent) {
+        const contentSpeed = 0.2;
+        const contentYPos = scrollY * contentSpeed;
+        (parallaxContent as HTMLElement).style.transform = `translateY(${contentYPos}px)`;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleParallax);
+  window.addEventListener('load', handleParallax);
+
+  // Random glitch effect on title
+  const glitchTitle = document.getElementById('glitch-title');
+  const originalText = 'BlairHacks 8';
+  const glitchChars = '!<>-_\\/[]{}—=+*^?#@$%&';
+
+  function randomGlitch() {
+    if (!glitchTitle) return;
+
+    const glitchDuration = 200;
+    const iterations = 5;
+    let currentIteration = 0;
+
+    glitchTitle.classList.add('glitching');
+
+    const interval = setInterval(() => {
+      let glitchedText = '';
+      for (let i = 0; i < originalText.length; i++) {
+        if (originalText[i] === ' ') {
+          glitchedText += ' ';
+        } else if (Math.random() < 0.4 && currentIteration < iterations) {
+          glitchedText += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+        } else {
+          glitchedText += originalText[i];
+        }
+      }
+      glitchTitle.textContent = glitchedText;
+      currentIteration++;
+
+      if (currentIteration >= iterations) {
+        clearInterval(interval);
+        glitchTitle.textContent = originalText;
+        glitchTitle.classList.remove('glitching');
+      }
+    }, glitchDuration / iterations);
+
+    // Schedule next glitch at random time (between 3-8 seconds)
+    const nextGlitch = Math.random() * 5000 + 3000;
+    setTimeout(randomGlitch, nextGlitch);
+  }
+
+  // Start first glitch after page load
+  setTimeout(randomGlitch, 3000);
+</script>

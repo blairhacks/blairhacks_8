@@ -1,0 +1,161 @@
+---
+---
+
+<nav class="vertical-nav">
+  <ul>
+    <li class="active">
+      <a href="#hero">
+        <span class="bullet"></span>
+        <span class="label">Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="#about">
+        <span class="bullet"></span>
+        <span class="label">About</span>
+      </a>
+    </li>
+    <li>
+      <a href="#team">
+        <span class="bullet"></span>
+        <span class="label">Team</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sponsors">
+        <span class="bullet"></span>
+        <span class="label">Sponsors</span>
+      </a>
+    </li>
+    <li>
+      <a href="#faq">
+        <span class="bullet"></span>
+        <span class="label">FAQ</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .vertical-nav {
+    position: fixed;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+
+  .vertical-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+
+  .vertical-nav li {
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .vertical-nav li:last-child {
+    margin-bottom: 0;
+  }
+
+  .vertical-nav a {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    gap: 12px;
+  }
+
+  .vertical-nav a:hover {
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateX(4px);
+  }
+
+  .vertical-nav li.active a {
+    color: white;
+  }
+
+  .bullet {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .vertical-nav li.active .bullet {
+    background-color: white;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  }
+
+  .vertical-nav a:hover .bullet {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .vertical-nav ul::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    bottom: 5px;
+    width: 1px;
+    background: linear-gradient(to bottom, 
+      rgba(255, 255, 255, 0.1) 0%, 
+      rgba(255, 255, 255, 0.3) 50%, 
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  }
+
+  @media (max-width: 768px) {
+    .vertical-nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // @ts-ignore
+  const navLinks = document.querySelectorAll('.vertical-nav a');
+  // @ts-ignore
+  const sections = document.querySelectorAll('section[id]');
+
+  function updateActiveLink() {
+    let current = '';
+    // @ts-ignore
+    sections.forEach((section) => {
+      const sectionTop = (section as HTMLElement).offsetTop;
+      const sectionHeight = (section as HTMLElement).clientHeight;
+      if (window.scrollY >= sectionTop - 200) {
+        const id = section.getAttribute('id');
+        if (id) current = id;
+      }
+    });
+
+    // @ts-ignore
+    navLinks.forEach((link) => {
+      // @ts-ignore
+      if (link.parentElement) {
+        // @ts-ignore
+        link.parentElement.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === '#' + current) {
+          // @ts-ignore
+          link.parentElement.classList.add('active');
+        }
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  window.addEventListener('load', updateActiveLink);
+</script>

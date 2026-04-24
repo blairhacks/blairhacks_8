@@ -1,0 +1,73 @@
+---
+---
+
+<section id="sponsors" class="relative py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-4xl font-bold text-white mb-4">Our Sponsors</h2>
+      <div class="h-1 w-24 bg-gradient-to-r from-white via-slate-400 to-white bg-[length:200%_100%] animate-gradient mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-12 max-w-4xl mx-auto items-center">
+      <div class="sponsor-card group">
+        <img src="/sponsor%20logos/PERFECT.png" alt="Perfect" class="h-16 w-auto object-contain mx-auto group-hover:scale-110 transition-transform" />
+      </div>
+      <div class="sponsor-card group">
+        <img src="/sponsor%20logos/featherless-full-dark.svg" alt="Featherless" class="h-16 w-auto object-contain mx-auto group-hover:scale-110 transition-transform" />
+      </div>
+      <div class="sponsor-card group">
+        <img src="/sponsor%20logos/pcbway.png" alt="PCBWay" class="h-16 w-auto object-contain mx-auto group-hover:scale-110 transition-transform" />
+      </div>
+      <div class="sponsor-card group">
+        <img src="/sponsor%20logos/wolfram-logo.png" alt="Wolfram" class="h-16 w-auto object-contain mx-auto group-hover:scale-110 transition-transform" />
+      </div>
+      <div class="sponsor-card group">
+        <img src="/sponsor%20logos/xyz-logo-color.png" alt="XYZ" class="h-16 w-auto object-contain mx-auto group-hover:scale-110 transition-transform" />
+      </div>
+      <div class="sponsor-card group">
+        <img src="/sponsor%20logos/yubico.png" alt="Yubico" class="h-16 w-auto object-contain mx-auto group-hover:scale-110 transition-transform" />
+      </div>
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="mailto:sponsors@blairhacks.com" class="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-white font-medium hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:scale-105 transition-all">
+        Become a Sponsor
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sponsor-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .sponsor-card:nth-child(1) { animation-delay: 0.1s; }
+  .sponsor-card:nth-child(2) { animation-delay: 0.2s; }
+  .sponsor-card:nth-child(3) { animation-delay: 0.3s; }
+  .sponsor-card:nth-child(4) { animation-delay: 0.4s; }
+  .sponsor-card:nth-child(5) { animation-delay: 0.5s; }
+  .sponsor-card:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .animate-gradient {
+    animation: gradient 3s ease infinite;
+  }
+</style>

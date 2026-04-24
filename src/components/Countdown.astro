@@ -1,0 +1,60 @@
+---
+export interface Props {
+  targetDate: string;
+}
+
+const { targetDate } = Astro.props;
+---
+
+<div class="flex items-center gap-3 sm:gap-4 countdown-container" data-target={targetDate}>
+  <div class="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white/5 border border-white/10 rounded-lg">
+    <span class="text-2xl sm:text-3xl font-bold text-white days">00</span>
+    <span class="text-[0.6rem] uppercase tracking-widest font-medium text-slate-400">Days</span>
+  </div>
+  <div class="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white/5 border border-white/10 rounded-lg">
+    <span class="text-2xl sm:text-3xl font-bold text-white hours">00</span>
+    <span class="text-[0.6rem] uppercase tracking-widest font-medium text-slate-400">Hours</span>
+  </div>
+  <div class="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white/5 border border-white/10 rounded-lg">
+    <span class="text-2xl sm:text-3xl font-bold text-white mins">00</span>
+    <span class="text-[0.6rem] uppercase tracking-widest font-medium text-slate-400">Mins</span>
+  </div>
+  <div class="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white/5 border border-white/10 rounded-lg">
+    <span class="text-2xl sm:text-3xl font-bold text-white secs">00</span>
+    <span class="text-[0.6rem] uppercase tracking-widest font-medium text-slate-400">Secs</span>
+  </div>
+</div>
+
+<script>
+  function initCountdowns() {
+    const containers = document.querySelectorAll(".countdown-container");
+    containers.forEach((container) => {
+      const targetStr = container.getAttribute("data-target");
+      if (!targetStr) return;
+      const targetDate = new Date(targetStr).getTime();
+      const updateCountdown = () => {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+        let days = 0, hours = 0, mins = 0, secs = 0;
+        if (difference > 0) {
+          days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          mins = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          secs = Math.floor((difference % (1000 * 60)) / 1000);
+        }
+        const daysEl = container.querySelector(".days");
+        const hoursEl = container.querySelector(".hours");
+        const minsEl = container.querySelector(".mins");
+        const secsEl = container.querySelector(".secs");
+        if (daysEl) daysEl.textContent = days.toString().padStart(2, "0");
+        if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, "0");
+        if (minsEl) minsEl.textContent = mins.toString().padStart(2, "0");
+        if (secsEl) secsEl.textContent = secs.toString().padStart(2, "0");
+      };
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  }
+  initCountdowns();
+  document.addEventListener('astro:page-load', initCountdowns);
+</script>
